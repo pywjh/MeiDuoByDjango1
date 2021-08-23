@@ -1,0 +1,90 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Sep 17 17:42:22 2019] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 10.0.0 (clang-1000.11.45.5) on 21 April 2019 13:46:00
+os: Darwin-18.6.0 Darwin Kernel Version 18.6.0: Thu Apr 25 23:16:27 PDT 2019; root:xnu-4903.261.4~2/RELEASE_X86_64
+nodename: chao1.local
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /Users/chao/Desktop/meiduo_30/meiduo_mall/meiduo_mall
+writing pidfile to uwsgi.pid
+detected binary path: /Users/chao/.virtualenvs/meiduo_new/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /Users/chao/Desktop/meiduo_30/meiduo_mall
+your processes number limit is 1418
+your memory page size is 4096 bytes
+detected max file descriptor number: 10240
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 192.168.11.50:8001 fd 3
+Python version: 3.6.2 (default, Sep  2 2017, 01:04:06)  [GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)]
+Set PythonHome to /Users/chao/.virtualenvs/meiduo_new
+Python main interpreter initialized at 0x7fa21280b400
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416560 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fa21280b400 pid: 45205 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 45205)
+spawned uWSGI worker 1 (pid: 45207, cores: 2)
+spawned uWSGI worker 2 (pid: 45208, cores: 2)
+spawned uWSGI worker 3 (pid: 45209, cores: 2)
+spawned uWSGI worker 4 (pid: 45210, cores: 2)
+[pid: 45207|app: 0|req: 1/1] 192.168.103.1 () {50 vars in 1066 bytes} [Tue Sep 17 17:44:02 2019] POST /visit/115/ => generated 29 bytes in 469 msecs (HTTP/1.1 200) 3 headers in 100 bytes (2 switches on core 0)
+[pid: 45209|app: 0|req: 1/2] 192.168.103.1 () {44 vars in 952 bytes} [Tue Sep 17 17:44:03 2019] GET /logout/ => generated 0 bytes in 502 msecs (HTTP/1.1 302) 6 headers in 298 bytes (2 switches on core 0)
+[pid: 45208|app: 0|req: 1/3] 192.168.103.1 () {44 vars in 885 bytes} [Tue Sep 17 17:44:04 2019] GET /login/ => generated 3430 bytes in 478 msecs (HTTP/1.1 200) 5 headers in 278 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 1/4] 192.168.103.1 () {52 vars in 1063 bytes} [Tue Sep 17 17:44:18 2019] POST /login/ => generated 0 bytes in 587 msecs (HTTP/1.1 302) 8 headers in 408 bytes (2 switches on core 1)
+[pid: 45207|app: 0|req: 2/5] 192.168.103.1 () {44 vars in 947 bytes} [Tue Sep 17 17:44:21 2019] GET /list/115/1/ => generated 102615 bytes in 302 msecs (HTTP/1.1 200) 5 headers in 280 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 2/6] 192.168.103.1 () {42 vars in 835 bytes} [Tue Sep 17 17:44:26 2019] GET /hot/115/ => generated 571 bytes in 13 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 3/7] 192.168.103.1 () {42 vars in 843 bytes} [Tue Sep 17 17:44:26 2019] GET /comments/16/ => generated 953 bytes in 29 msecs (HTTP/1.1 404) 3 headers in 116 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 3/8] 192.168.103.1 () {50 vars in 1067 bytes} [Tue Sep 17 17:44:26 2019] POST /visit/115/ => generated 29 bytes in 53 msecs (HTTP/1.1 200) 3 headers in 100 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 5/9] 192.168.103.1 () {46 vars in 896 bytes} [Tue Sep 17 17:44:29 2019] GET /comments/16/ => generated 953 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 116 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 5/10] 192.168.103.1 () {46 vars in 888 bytes} [Tue Sep 17 17:44:29 2019] GET /hot/115/ => generated 571 bytes in 12 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 3/11] 192.168.103.1 () {54 vars in 1120 bytes} [Tue Sep 17 17:44:29 2019] POST /visit/115/ => generated 29 bytes in 29 msecs (HTTP/1.1 200) 3 headers in 100 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 6/12] 192.168.103.1 () {46 vars in 896 bytes} [Tue Sep 17 17:44:30 2019] GET /comments/16/ => generated 953 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 116 bytes (2 switches on core 0)
+[pid: 45208|app: 0|req: 3/13] 192.168.103.1 () {46 vars in 888 bytes} [Tue Sep 17 17:44:30 2019] GET /hot/115/ => generated 571 bytes in 31 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 0)
+[pid: 45208|app: 0|req: 3/14] 192.168.103.1 () {54 vars in 1120 bytes} [Tue Sep 17 17:44:30 2019] POST /visit/115/ => generated 29 bytes in 50 msecs (HTTP/1.1 200) 3 headers in 100 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 8/15] 192.168.103.1 () {42 vars in 843 bytes} [Tue Sep 17 17:44:38 2019] GET /comments/16/ => generated 953 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 116 bytes (2 switches on core 0)
+[pid: 45209|app: 0|req: 4/16] 192.168.103.1 () {42 vars in 835 bytes} [Tue Sep 17 17:44:38 2019] GET /hot/115/ => generated 571 bytes in 12 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 8/17] 192.168.103.1 () {50 vars in 1067 bytes} [Tue Sep 17 17:44:38 2019] POST /visit/115/ => generated 29 bytes in 43 msecs (HTTP/1.1 200) 3 headers in 100 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 10/18] 192.168.103.1 () {42 vars in 843 bytes} [Tue Sep 17 17:44:39 2019] GET /comments/16/ => generated 953 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 116 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 5/19] 192.168.103.1 () {42 vars in 835 bytes} [Tue Sep 17 17:44:39 2019] GET /hot/115/ => generated 571 bytes in 11 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 10/20] 192.168.103.1 () {50 vars in 1067 bytes} [Tue Sep 17 17:44:39 2019] POST /visit/115/ => generated 29 bytes in 39 msecs (HTTP/1.1 200) 3 headers in 100 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 11/21] 192.168.103.1 () {42 vars in 843 bytes} [Tue Sep 17 17:44:40 2019] GET /comments/16/ => generated 953 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 116 bytes (2 switches on core 1)
+[pid: 45208|app: 0|req: 5/22] 192.168.103.1 () {42 vars in 835 bytes} [Tue Sep 17 17:44:40 2019] GET /hot/115/ => generated 571 bytes in 19 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 0)
+[pid: 45208|app: 0|req: 5/23] 192.168.103.1 () {50 vars in 1067 bytes} [Tue Sep 17 17:44:40 2019] POST /visit/115/ => generated 29 bytes in 44 msecs (HTTP/1.1 200) 3 headers in 100 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 12/24] 192.168.103.1 () {44 vars in 947 bytes} [Tue Sep 17 17:44:48 2019] GET /list/115/1/ => generated 102615 bytes in 260 msecs (HTTP/1.1 200) 5 headers in 280 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 13/25] 192.168.103.1 () {48 vars in 1000 bytes} [Tue Sep 17 17:44:51 2019] GET /list/115/1/ => generated 102615 bytes in 260 msecs (HTTP/1.1 200) 5 headers in 280 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 6/26] 192.168.103.1 () {48 vars in 1000 bytes} [Tue Sep 17 17:44:51 2019] GET /list/115/1/ => generated 102615 bytes in 300 msecs (HTTP/1.1 200) 5 headers in 280 bytes (2 switches on core 1)
+[pid: 45208|app: 0|req: 6/27] 192.168.103.1 () {48 vars in 1000 bytes} [Tue Sep 17 17:45:44 2019] GET /list/115/1/ => generated 102615 bytes in 222 msecs (HTTP/1.1 200) 5 headers in 280 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 15/28] 192.168.103.1 () {46 vars in 885 bytes} [Tue Sep 17 17:45:44 2019] GET /hot/115/ => generated 571 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 15/29] 192.168.103.1 () {46 vars in 895 bytes} [Tue Sep 17 17:45:44 2019] GET /carts/simple/ => generated 318 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 7/30] 192.168.103.1 () {48 vars in 1000 bytes} [Tue Sep 17 17:45:45 2019] GET /list/115/1/ => generated 102615 bytes in 268 msecs (HTTP/1.1 200) 5 headers in 280 bytes (2 switches on core 0)
+[pid: 45207|app: 0|req: 3/31] 192.168.103.1 () {46 vars in 885 bytes} [Tue Sep 17 17:45:46 2019] GET /hot/115/ => generated 571 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 8/32] 192.168.103.1 () {46 vars in 895 bytes} [Tue Sep 17 17:45:46 2019] GET /carts/simple/ => generated 318 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 1)
+[pid: 45208|app: 0|req: 7/33] 192.168.103.1 () {44 vars in 950 bytes} [Tue Sep 17 17:45:50 2019] GET /logout/ => generated 0 bytes in 17 msecs (HTTP/1.1 302) 6 headers in 298 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 16/34] 192.168.103.1 () {44 vars in 883 bytes} [Tue Sep 17 17:45:50 2019] GET /login/ => generated 3430 bytes in 11 msecs (HTTP/1.1 200) 5 headers in 278 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 17/35] 192.168.103.1 () {52 vars in 1063 bytes} [Tue Sep 17 17:45:54 2019] POST /login/ => generated 0 bytes in 59 msecs (HTTP/1.1 302) 8 headers in 408 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 9/36] 192.168.103.1 () {42 vars in 831 bytes} [Tue Sep 17 17:45:54 2019] GET /carts/simple/ => generated 318 bytes in 8 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 10/37] 192.168.103.1 () {44 vars in 935 bytes} [Tue Sep 17 17:45:56 2019] GET /info/ => generated 6110 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 278 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 18/38] 192.168.103.1 () {42 vars in 844 bytes} [Tue Sep 17 17:45:56 2019] GET /browse_histories/ => generated 1345 bytes in 26 msecs (HTTP/1.1 200) 4 headers in 116 bytes (2 switches on core 0)
+[pid: 45208|app: 0|req: 8/39] 192.168.103.1 () {44 vars in 958 bytes} [Tue Sep 17 17:45:58 2019] GET /orders/info/1/ => generated 953 bytes in 9 msecs (HTTP/1.1 404) 3 headers in 116 bytes (2 switches on core 0)
+[pid: 45209|app: 0|req: 11/40] 192.168.103.1 () {44 vars in 948 bytes} [Tue Sep 17 17:46:06 2019] GET /password/ => generated 5344 bytes in 18 msecs (HTTP/1.1 200) 5 headers in 278 bytes (2 switches on core 1)
+[pid: 45208|app: 0|req: 9/41] 192.168.103.1 () {42 vars in 831 bytes} [Tue Sep 17 17:46:10 2019] GET /carts/simple/ => generated 318 bytes in 12 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 19/42] 192.168.103.1 () {44 vars in 947 bytes} [Tue Sep 17 17:46:11 2019] GET /list/115/1/ => generated 102615 bytes in 261 msecs (HTTP/1.1 200) 5 headers in 280 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 21/43] 192.168.103.1 () {42 vars in 832 bytes} [Tue Sep 17 17:46:12 2019] GET /hot/115/ => generated 571 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 21/44] 192.168.103.1 () {42 vars in 842 bytes} [Tue Sep 17 17:46:12 2019] GET /carts/simple/ => generated 318 bytes in 13 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 0)
+[pid: 45209|app: 0|req: 13/45] 192.168.103.1 () {42 vars in 843 bytes} [Tue Sep 17 17:46:12 2019] GET /comments/16/ => generated 953 bytes in 8 msecs (HTTP/1.1 404) 3 headers in 116 bytes (2 switches on core 0)
+[pid: 45209|app: 0|req: 13/46] 192.168.103.1 () {42 vars in 835 bytes} [Tue Sep 17 17:46:12 2019] GET /hot/115/ => generated 571 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 101 bytes (2 switches on core 1)
+[pid: 45208|app: 0|req: 10/47] 192.168.103.1 () {50 vars in 1083 bytes} [Tue Sep 17 17:46:12 2019] POST /browse_histories/ => generated 29 bytes in 21 msecs (HTTP/1.1 200) 4 headers in 114 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 23/48] 192.168.103.1 () {42 vars in 845 bytes} [Tue Sep 17 17:46:12 2019] GET /carts/simple/ => generated 318 bytes in 27 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 23/49] 192.168.103.1 () {50 vars in 1067 bytes} [Tue Sep 17 17:46:12 2019] POST /visit/115/ => generated 29 bytes in 34 msecs (HTTP/1.1 200) 3 headers in 100 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 24/50] 192.168.103.1 () {50 vars in 1061 bytes} [Tue Sep 17 17:46:14 2019] POST /carts/ => generated 81 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 114 bytes (2 switches on core 0)
+[pid: 45208|app: 0|req: 11/51] 192.168.103.1 () {42 vars in 845 bytes} [Tue Sep 17 17:46:15 2019] GET /carts/simple/ => generated 593 bytes in 13 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 25/52] 192.168.103.1 () {44 vars in 951 bytes} [Tue Sep 17 17:46:15 2019] GET /carts/ => generated 4952 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 278 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 26/53] 192.168.103.1 () {44 vars in 967 bytes} [Tue Sep 17 17:46:17 2019] GET /orders/settlement/ => generated 6351 bytes in 37 msecs (HTTP/1.1 200) 5 headers in 278 bytes (2 switches on core 0)
+[pid: 45210|app: 0|req: 27/54] 192.168.103.1 () {50 vars in 1081 bytes} [Tue Sep 17 17:46:19 2019] POST /orders/commit/ => generated 102 bytes in 39 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 1)
+[pid: 45209|app: 0|req: 14/55] 192.168.103.1 () {44 vars in 1104 bytes} [Tue Sep 17 17:46:19 2019] GET /orders/success/?order_id=20190917174619000000001&payment_amount=3798&pay_method=2 => generated 3829 bytes in 14 msecs (HTTP/1.1 200) 5 headers in 278 bytes (2 switches on core 1)
+[pid: 45210|app: 0|req: 28/56] 192.168.103.1 () {42 vars in 950 bytes} [Tue Sep 17 17:46:20 2019] GET /payment/20190917174619000000001/ => generated 884 bytes in 101 msecs (HTTP/1.1 200) 4 headers in 115 bytes (2 switches on core 0)
+[pid: 45208|app: 0|req: 12/57] 192.168.103.1 () {44 vars in 2489 bytes} [Tue Sep 17 17:47:08 2019] GET /payment/status/?charset=utf-8&out_trade_no=20190917174619000000001&method=alipay.trade.page.pay.return&total_amount=3798.00&sign=w3BQfvH%2FwHLs6Uv7Jg%2FjJfg6Vah8CDH6bJgTW9Ic0uZENTNo1JOro1qrybh7OLssYqFLMub%2BP%2BJZWwOBzNO%2FBRjFaz6FX7q4Rl4%2Fmw%2BCfPsrkMgAtZ33IQ45ottHqGcbC4e%2F0NuHR0WslONYpcTRpYFxedS%2FFbvX03Rs0nM8QbQImeDPQRzD0gQT9eaa7YETZZCZYw%2BG%2FdQ1%2BrxRGfD3ZMDT%2FMJ0A1kY7x%2Brq6WLIXztGp6UPyv7q0lMjHgrDVuqtIBJvyihV3YaIQLHolEgu4HqKHo6LNx0%2BvPFZk0%2BIGG1mgXE6bAAN1hQOufVixMX4xglDTghrAfbPq2F26eqMg%3D%3D&trade_no=2019091722001443551000140642&auth_app_id=2016091900551154&version=1.0&app_id=2016091900551154&sign_type=RSA2&seller_id=2088102176399893&timestamp=2019-09-17+17%3A47%3A05 => generated 3277 bytes in 115 msecs (HTTP/1.1 200) 5 headers in 278 bytes (3 switches on core 1)

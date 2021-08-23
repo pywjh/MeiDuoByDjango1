@@ -1,0 +1,1 @@
+from django.conf.urls import urlfrom . import viewsurlpatterns = [    # 获取支付宝url    url(r'^payment/(?P<order_id>\d+)/$', views.PaymentURLView.as_view()),    # 校验及保存支付结果    url(r'^payment/status/$', views.PaymentStatusView.as_view()),]
