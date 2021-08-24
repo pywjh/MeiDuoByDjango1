@@ -1,1 +1,1 @@
-from django.views import Viewfrom django.contrib.auth.mixins import LoginRequiredMixinclass LoginRequiredView(LoginRequiredMixin, View):    """判断登录的工具类"""    pass
+from django import httpfrom django.views import Viewfrom django.contrib.auth.mixins import LoginRequiredMixinfrom .response_code import RETCODE, err_msgclass LoginRequiredView(LoginRequiredMixin, View):    """判断登录的工具类"""    def handle_no_permission(self):        return http.JsonResponse({"code": RETCODE.SESSIONERR, "errmsg": err_msg[RETCODE.SESSIONERR]})
