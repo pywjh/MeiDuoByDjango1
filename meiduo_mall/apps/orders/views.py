@@ -154,6 +154,7 @@ class OrderCommitView(LoginRequiredView):
                         # sku.stock = new_stock
                         # sku.sales = new_sales
                         # sku.save()
+                        # 乐观锁
                         result = SKU.objects.filter(id=sku_id, stock=origin_stock).update(stock=new_stock,
                                                                                           sales=new_sales)
                         # 如果下单失败,给用户无限次下单机会,只到成功或库存不足
