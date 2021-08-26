@@ -1,4 +1,6 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.views import View
 from django_redis import get_redis_connection
 from decimal import Decimal
 import json
@@ -228,3 +230,129 @@ class OrderSuccessView(LoginRequiredView):
         }
 
         return render(request, 'order_success.html', context)
+
+
+class InfoView(LoginRequiredView):
+    def get(self, request, page_num):
+        # 查询当前登录用户的所有订单
+        order_list = request.user.orders.order_by('-create_time')
+
+        # 分页
+        paginator = Paginator(order_list, 2)
+        # 获取当前页数据
+        page = paginator.page(page_num)
+
+        # 遍历当前页数据，转换页面中需要的结构
+        order_list2 = []
+        for order in page:
+            # 获取当前订单中所有订单商品
+            detail_list = []
+            for detail in order.skus.all():
+                detail_list.append({
+                    'default_image_url': detail.sku.default_image.url,
+                    'name': detail.sku.name,
+                    'price': detail.price,
+                    'count': detail.count,
+                    'total_amount': detail.price * detail.count
+                })
+
+            order_list2.append({
+                'create_time': order.create_time,
+                'order_id': order.order_id,
+                'details': detail_list,
+                'total_amount': order.total_amount,
+                'freight': order.freight,
+                'status': order.status
+            })
+
+        context = {
+            'page': order_list2,
+            'page_num': page_num,
+            'total_page': paginator.num_pages
+        }
+        return render(request, 'user_center_order.html', context)
+
+
+class CommentView(LoginRequiredView):
+    def get(self, request):
+        # 接收订单编号
+        order_id = request.GET.get('order_id')
+
+        # 查询订单商品列表
+        try:
+            order = OrderInfo.objects.get(pk=order_id, user_id=request.user.id)
+        except:
+            return http.Http404('商品编号无效')
+
+        # 获取订单的所有商品
+        skus = []
+        # detail表示OrderGoods类型的对象
+        for detail in order.skus.filter(is_commented=False):
+            skus.append({
+                'sku_id': detail.sku.id,
+                'default_image_url': detail.sku.default_image.url,
+                'name': detail.sku.name,
+                'price': str(detail.price),
+                'order_id': order_id
+            })
+
+        context = {
+            'skus': skus
+        }
+        return render(request, 'goods_judge.html', context)
+
+    def post(self, request):
+        # 接收
+        data = json.loads(request.body.decode())
+        order_id = data.get('order_id')
+        sku_id = data.get('sku_id')
+        comment = data.get('comment')
+        score = data.get('score')
+        is_anonymous = data.get('is_anonymous')
+
+        # 验证
+        if not all([order_id, sku_id, comment, score]):
+            return http.JsonResponse({
+                'code': RETCODE.PARAMERR,
+                'errmsg': '参数不完整'
+            })
+        if not isinstance(is_anonymous, bool):
+            return http.JsonResponse({
+                'code': RETCODE.PARAMERR,
+                'errmsg': '是否匿名参数错误'
+            })
+        # 查询OrderGoods对象
+        order_goods = OrderGoods.objects.get(order_id=order_id, sku_id=sku_id)
+        order_goods.comment = comment
+        order_goods.score = int(score)
+        order_goods.is_anonymous = is_anonymous
+        order_goods.is_commented = True
+        order_goods.save()
+
+        return http.JsonResponse({
+            'code': RETCODE.OK,
+            'errmsg': 'OK'
+        })
+
+
+class CommentSKUView(View):
+    def get(self, request, sku_id):
+        # 查询指定sku_id的所有评论信息
+        comments = OrderGoods.objects.filter(sku_id=sku_id, is_commented=True)
+        comment_list = []
+        # detail表示OrderGoods对象
+        for detail in comments:
+            username = detail.order.user.username
+            if detail.is_anonymous:
+                username = '******'
+            comment_list.append({
+                'username': username,
+                'comment': detail.comment,
+                'score': detail.score
+            })
+
+        return http.JsonResponse({
+            'code': RETCODE.OK,
+            'errmsg': "OK",
+            'goods_comment_list': comment_list
+        })
