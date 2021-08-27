@@ -12,7 +12,7 @@ urlpatterns = [
     url('^orders/info/(?P<page_num>\d+)/$', views.InfoView.as_view()),
 
     url('^orders/comment/$', views.CommentView.as_view()),
-
+    # 查看商品评论
     url('^comment/(?P<sku_id>\d+)/$', views.CommentSKUView.as_view()),
 
 ]
